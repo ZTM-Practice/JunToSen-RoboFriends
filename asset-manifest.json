@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/JunToSen-RoboFriends/static/css/main.66d4b89b.css",
-    "main.js": "/JunToSen-RoboFriends/static/js/main.03f7d475.js",
+    "main.js": "/JunToSen-RoboFriends/static/js/main.a6346fbd.js",
     "static/js/787.fbcc466c.chunk.js": "/JunToSen-RoboFriends/static/js/787.fbcc466c.chunk.js",
     "service-worker.js": "/JunToSen-RoboFriends/service-worker.js",
     "static/media/SEGA.woff": "/JunToSen-RoboFriends/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
     "index.html": "/JunToSen-RoboFriends/index.html",
     "main.66d4b89b.css.map": "/JunToSen-RoboFriends/static/css/main.66d4b89b.css.map",
-    "main.03f7d475.js.map": "/JunToSen-RoboFriends/static/js/main.03f7d475.js.map",
+    "main.a6346fbd.js.map": "/JunToSen-RoboFriends/static/js/main.a6346fbd.js.map",
     "787.fbcc466c.chunk.js.map": "/JunToSen-RoboFriends/static/js/787.fbcc466c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.66d4b89b.css",
-    "static/js/main.03f7d475.js"
+    "static/js/main.a6346fbd.js"
   ]
 }
