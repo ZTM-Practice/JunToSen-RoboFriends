@@ -8,6 +8,7 @@ import './index.css';
 import App from './containers/App';
 import { searchRobots, requestRobots } from './reducers';
 import 'tachyons';
+import { register } from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 const logger = createLogger();
@@ -26,3 +27,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+register();
