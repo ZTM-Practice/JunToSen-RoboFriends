@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
-import { setSearchField, requestRobots } from '../actions';
+// import { setSearchField, requestRobots } from '../redux/actions';
+import { changeSearchField } from '../redux/searchSlice';
+import { requestRobots } from '../redux/requestSlice';
 
-const mapStateToProps = (state) => {
-    return {
-        searchField: state.searchRobots.searchField,
-        robots: state.requestRobots.robots,
-        isPending: state.requestRobots.isPending,
-        error: state.requestRobots.error
-    };
-};
+const App = () => {
+    const { searchField } = useSelector((state) => state.searchRobots);
+    const { robots, isPending } = useSelector((state) => state.requestRobots)
+    const dispatch = useDispatch();
+    const onSearchChange = (e) => dispatch(changeSearchField(e.target.value));
+    const onRequestRobots = () => dispatch(requestRobots());
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSearchChange: (e) => dispatch(setSearchField(e.target.value)),
-        onRequestRobots: () => dispatch(requestRobots())
-    };
-};
-
-const App = ({ searchField, robots, isPending, onSearchChange, onRequestRobots }) => {
     useEffect(() => {
         onRequestRobots();
     }, []);
@@ -47,4 +39,4 @@ const App = ({ searchField, robots, isPending, onSearchChange, onRequestRobots }
         )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
