@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CardList from '../components/CardList';
-import SearchBox from '../components/SearchBox';
-import Scroll from '../components/Scroll';
-import ErrorBoundary from '../components/ErrorBoundary';
-import './App.css';
-// import { setSearchField, requestRobots } from '../redux/actions';
 import { changeSearchField } from '../redux/searchSlice';
 import { requestRobots } from '../redux/requestSlice';
+import MainPage from '../components/MainPage/MainPage';
 
 const App = () => {
     const { searchField } = useSelector((state) => state.searchRobots);
@@ -16,27 +11,13 @@ const App = () => {
     const onSearchChange = (e) => dispatch(changeSearchField(e.target.value));
     const onRequestRobots = () => dispatch(requestRobots());
 
-    useEffect(() => {
-        onRequestRobots();
-    }, []);
-
-    const filteredRobots = robots.filter((robot) => {
-        return robot.name.toLowerCase().includes(searchField.toLowerCase())
-    })
-
-    return isPending ?
-        <h1>LOADING</h1> :
-        (
-            <div className='tc'>
-                <h1 className='f1'>RoboFriends</h1>
-                <SearchBox searchChange={onSearchChange}/>
-                <Scroll>
-                    <ErrorBoundary>
-                        <CardList robots={filteredRobots} />
-                    </ErrorBoundary>
-                </Scroll>
-            </div>
-        )
+    return (<MainPage 
+                onRequestRobots={onRequestRobots}
+                onSearchChange={onSearchChange}
+                robots={robots}
+                isPending={isPending}
+                searchField={searchField}
+            />);
 }
 
 export default App;
