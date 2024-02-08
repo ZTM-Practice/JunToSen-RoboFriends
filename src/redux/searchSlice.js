@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialStateSearch = {
     searchField: ''
-}
+};
 
 const searchRobotsSlice = createSlice({
     name: 'searchField',
@@ -15,7 +15,7 @@ const searchRobotsSlice = createSlice({
                 }
         }
     }
-})
+});
 
 export const { changeSearchField } = searchRobotsSlice.actions;
 
